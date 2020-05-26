@@ -40,7 +40,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fuI-LK-iWf">
-                                <rect key="frame" x="325" y="728" width="50" height="50"/>
+                                <rect key="frame" x="305" y="728" width="50" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="WgP-yA-4Ie"/>
                                     <constraint firstAttribute="height" constant="50" id="ZL7-lA-Kcc"/>
@@ -68,11 +68,14 @@
                             <constraint firstItem="apW-QI-1Jv" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="lHg-Yk-mBG"/>
                             <constraint firstItem="apW-QI-1Jv" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="m5O-qw-u7G"/>
                             <constraint firstItem="wpx-xs-30I" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="qUE-Wm-NtB"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="fuI-LK-iWf" secondAttribute="trailing" id="yQh-Ax-C45"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="fuI-LK-iWf" secondAttribute="trailing" constant="20" id="yQh-Ax-C45"/>
                             <constraint firstItem="qcn-iX-tuF" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="zVf-fO-jRf"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="mapViewOutlet" destination="apW-QI-1Jv" id="vkU-1b-ENT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
