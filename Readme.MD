@@ -1,3 +1,3 @@
-#pods
-AlamofireImage
-Alamofire
+# pods
+* AlamofireImage
+* Alamofire
