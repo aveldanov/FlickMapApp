@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  MapViewController.swift
 //  FlickMapApp
 //
 //  Created by Veldanov, Anton on 5/24/20.
