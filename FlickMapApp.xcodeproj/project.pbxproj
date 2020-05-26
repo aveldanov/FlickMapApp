@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		210DCD00247B8F67005B2891 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210DCCFF247B8F67005B2891 /* AppDelegate.swift */; };
 		210DCD02247B8F67005B2891 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210DCD01247B8F67005B2891 /* SceneDelegate.swift */; };
-		210DCD04247B8F67005B2891 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210DCD03247B8F67005B2891 /* ViewController.swift */; };
+		210DCD04247B8F67005B2891 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210DCD03247B8F67005B2891 /* MapViewController.swift */; };
 		210DCD07247B8F67005B2891 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 210DCD05247B8F67005B2891 /* Main.storyboard */; };
 		210DCD09247B8F6A005B2891 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 210DCD08247B8F6A005B2891 /* Assets.xcassets */; };
 		210DCD0C247B8F6A005B2891 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 210DCD0A247B8F6A005B2891 /* LaunchScreen.storyboard */; };
@@ -19,7 +19,7 @@
 		210DCCFC247B8F67005B2891 /* FlickMapApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlickMapApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		210DCCFF247B8F67005B2891 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		210DCD01247B8F67005B2891 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		210DCD03247B8F67005B2891 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		210DCD03247B8F67005B2891 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MapViewController.swift; path = ../MapViewController.swift; sourceTree = "<group>"; };
 		210DCD06247B8F67005B2891 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		210DCD08247B8F6A005B2891 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		210DCD0B247B8F6A005B2891 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -56,15 +56,47 @@
 		210DCCFE247B8F67005B2891 /* FlickMapApp */ = {
 			isa = PBXGroup;
 			children = (
+				210DCD16247CBF8E005B2891 /* Utilities */,
+				210DCD15247CBF7D005B2891 /* Extenstions */,
 				210DCCFF247B8F67005B2891 /* AppDelegate.swift */,
 				210DCD01247B8F67005B2891 /* SceneDelegate.swift */,
-				210DCD03247B8F67005B2891 /* ViewController.swift */,
-				210DCD05247B8F67005B2891 /* Main.storyboard */,
+				210DCD13247CBF68005B2891 /* Controller */,
+				210DCD14247CBF76005B2891 /* View */,
 				210DCD08247B8F6A005B2891 /* Assets.xcassets */,
 				210DCD0A247B8F6A005B2891 /* LaunchScreen.storyboard */,
 				210DCD0D247B8F6A005B2891 /* Info.plist */,
 			);
 			path = FlickMapApp;
+			sourceTree = "<group>";
+		};
+		210DCD13247CBF68005B2891 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				210DCD03247B8F67005B2891 /* MapViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		210DCD14247CBF76005B2891 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				210DCD05247B8F67005B2891 /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		210DCD15247CBF7D005B2891 /* Extenstions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extenstions;
+			sourceTree = "<group>";
+		};
+		210DCD16247CBF8E005B2891 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,7 +170,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				210DCD04247B8F67005B2891 /* ViewController.swift in Sources */,
+				210DCD04247B8F67005B2891 /* MapViewController.swift in Sources */,
 				210DCD00247B8F67005B2891 /* AppDelegate.swift in Sources */,
 				210DCD02247B8F67005B2891 /* SceneDelegate.swift in Sources */,
 			);
@@ -294,7 +326,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.aveldanov.FlickMapApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -312,7 +344,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.aveldanov.FlickMapApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
