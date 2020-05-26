@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -12,15 +12,74 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="MapViewController" customModule="FlickMapApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="apW-QI-1Jv">
+                                <rect key="frame" x="0.0" y="44" width="375" height="768"/>
+                            </mapView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wpx-xs-30I">
+                                <rect key="frame" x="0.0" y="44" width="375" height="70"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Double-tap to drop a pin and view photos" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="krc-RT-MOB">
+                                        <rect key="frame" x="20" y="24.666666666666671" width="335" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="21" id="7Pl-gy-GW9"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="3zG-FK-jJk"/>
+                                    <constraint firstItem="krc-RT-MOB" firstAttribute="leading" secondItem="wpx-xs-30I" secondAttribute="leading" constant="20" id="XBk-lZ-qPH"/>
+                                    <constraint firstAttribute="trailing" secondItem="krc-RT-MOB" secondAttribute="trailing" constant="20" id="ifh-bp-eNK"/>
+                                    <constraint firstItem="krc-RT-MOB" firstAttribute="centerY" secondItem="wpx-xs-30I" secondAttribute="centerY" id="sfN-gI-zPm"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fuI-LK-iWf">
+                                <rect key="frame" x="325" y="728" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="WgP-yA-4Ie"/>
+                                    <constraint firstAttribute="height" constant="50" id="ZL7-lA-Kcc"/>
+                                </constraints>
+                                <state key="normal" image="locationButton"/>
+                                <connections>
+                                    <action selector="centerMapButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vdX-Ey-dQd"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qcn-iX-tuF" userLabel="HiddenView">
+                                <rect key="frame" x="0.0" y="812" width="375" height="0.0"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="qcn-iX-tuF" secondAttribute="bottom" id="1HA-h6-2MY"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="fuI-LK-iWf" secondAttribute="bottom" id="6gU-ro-6cg"/>
+                            <constraint firstItem="wpx-xs-30I" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Erz-K4-rjh"/>
+                            <constraint firstAttribute="bottom" secondItem="apW-QI-1Jv" secondAttribute="bottom" id="PM4-oE-FCB"/>
+                            <constraint firstItem="qcn-iX-tuF" firstAttribute="top" secondItem="apW-QI-1Jv" secondAttribute="bottom" id="S5l-Py-XFl"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="wpx-xs-30I" secondAttribute="trailing" id="YQ4-It-YEX"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="apW-QI-1Jv" secondAttribute="trailing" id="caI-eP-nlz"/>
+                            <constraint firstAttribute="trailing" secondItem="qcn-iX-tuF" secondAttribute="trailing" id="l5t-Nf-Bkx"/>
+                            <constraint firstItem="apW-QI-1Jv" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="lHg-Yk-mBG"/>
+                            <constraint firstItem="apW-QI-1Jv" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="m5O-qw-u7G"/>
+                            <constraint firstItem="wpx-xs-30I" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="qUE-Wm-NtB"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="fuI-LK-iWf" secondAttribute="trailing" id="yQh-Ax-C45"/>
+                            <constraint firstItem="qcn-iX-tuF" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="zVf-fO-jRf"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="139" y="138"/>
+            <point key="canvasLocation" x="136.80000000000001" y="137.4384236453202"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="locationButton" width="67" height="67"/>
+    </resources>
 </document>
