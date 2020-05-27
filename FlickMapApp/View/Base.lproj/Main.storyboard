@@ -31,7 +31,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.95804768799999995" green="0.65593314170000006" blue="0.1369758844" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="70" id="3zG-FK-jJk"/>
                                     <constraint firstItem="krc-RT-MOB" firstAttribute="leading" secondItem="wpx-xs-30I" secondAttribute="leading" constant="20" id="XBk-lZ-qPH"/>
