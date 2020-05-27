@@ -8,17 +8,26 @@
 
 import UIKit
 import MapKit
+import CoreLocation
 
 class MapViewController: UIViewController {
 
   @IBOutlet weak var mapViewOutlet: MKMapView!
   override func viewDidLoad() {
     super.viewDidLoad()
-    // Do any additional setup after loading the view.
+    mapViewOutlet.delegate = self
   }
 
   @IBAction func centerMapButtonPressed(_ sender: UIButton) {
   }
+  
+}
+
+
+extension MapViewController: MKMapViewDelegate{
+  
+  
+  
   
 }
 
