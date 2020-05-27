@@ -39,8 +39,12 @@ extension MapViewController: MKMapViewDelegate{
 
 extension MapViewController: CLLocationManagerDelegate{
   func configureLocationServices(){
-    
-    
+    if authorizationStatus == .notDetermined{
+      locationManager.requestAlwaysAuthorization()
+    }else{
+      // if we approved no need to do anything therefore - return
+      return
+    }
     
   }
   
