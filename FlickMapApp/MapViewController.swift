@@ -17,12 +17,22 @@ class MapViewController: UIViewController {
   let regionRadious: Double = 1000 // in meters
   
   @IBOutlet weak var mapViewOutlet: MKMapView!
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     mapViewOutlet.delegate = self
     locationManager.delegate = self
     configureLocationServices()
   }
+  
+  func addDoubleTap(){
+    let doubleTap = UIGestureRecognizer(target: self, action: #selector(dropPin))
+    
+    
+  }
+  
+  
+  
 
   @IBAction func centerMapButtonPressed(_ sender: UIButton) {
     
@@ -44,6 +54,12 @@ extension MapViewController: MKMapViewDelegate{
     let coordinateRegion = MKCoordinateRegion(center: coordinate, latitudinalMeters: regionRadious*2, longitudinalMeters: regionRadious*2)
     
     mapViewOutlet.setRegion(coordinateRegion, animated: true)
+  }
+  
+  @objc func dropPin(){
+    
+    
+    
   }
   
   
