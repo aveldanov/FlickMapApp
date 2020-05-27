@@ -11,11 +11,14 @@ import MapKit
 import CoreLocation
 
 class MapViewController: UIViewController {
+  
+  var locationManager = CLLocationManager()
 
   @IBOutlet weak var mapViewOutlet: MKMapView!
   override func viewDidLoad() {
     super.viewDidLoad()
     mapViewOutlet.delegate = self
+    locationManager.delegate = self
   }
 
   @IBAction func centerMapButtonPressed(_ sender: UIButton) {
@@ -26,6 +29,13 @@ class MapViewController: UIViewController {
 
 extension MapViewController: MKMapViewDelegate{
   
+  
+  
+  
+}
+
+
+extension MapViewController: CLLocationManagerDelegate{
   
   
   
