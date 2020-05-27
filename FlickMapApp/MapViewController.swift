@@ -13,7 +13,9 @@ import CoreLocation
 class MapViewController: UIViewController {
   
   var locationManager = CLLocationManager()
-
+  let authorizationStatus = CLLocationManager.authorizationStatus()
+  
+  
   @IBOutlet weak var mapViewOutlet: MKMapView!
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -36,7 +38,11 @@ extension MapViewController: MKMapViewDelegate{
 
 
 extension MapViewController: CLLocationManagerDelegate{
-  
+  func configureLocationServices(){
+    
+    
+    
+  }
   
   
 }
