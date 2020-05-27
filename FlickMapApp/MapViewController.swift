@@ -21,6 +21,7 @@ class MapViewController: UIViewController {
     super.viewDidLoad()
     mapViewOutlet.delegate = self
     locationManager.delegate = self
+    configureLocationServices()
   }
 
   @IBAction func centerMapButtonPressed(_ sender: UIButton) {
