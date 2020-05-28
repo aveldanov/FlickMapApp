@@ -10,7 +10,7 @@ import UIKit
 import MapKit
 import CoreLocation
 
-class MapViewController: UIViewController {
+class MapViewController: UIViewController, UIGestureRecognizerDelegate {
   
   var locationManager = CLLocationManager()
   let authorizationStatus = CLLocationManager.authorizationStatus()
@@ -26,8 +26,11 @@ class MapViewController: UIViewController {
   }
   
   func addDoubleTap(){
-    let doubleTap = UIGestureRecognizer(target: self, action: #selector(dropPin))
+    let doubleTap = UITapGestureRecognizer(target: self, action: #selector(dropPin))
     
+    doubleTap.numberOfTapsRequired = 2
+    doubleTap.delegate = self
+    mapViewOutlet.addGestureRecognizer(doubleTap)
     
   }
   
