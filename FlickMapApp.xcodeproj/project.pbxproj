@@ -14,6 +14,7 @@
 		210DCD09247B8F6A005B2891 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 210DCD08247B8F6A005B2891 /* Assets.xcassets */; };
 		210DCD0C247B8F6A005B2891 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 210DCD0A247B8F6A005B2891 /* LaunchScreen.storyboard */; };
 		210DCD18247CC179005B2891 /* Readme.MD in Resources */ = {isa = PBXBuildFile; fileRef = 210DCD17247CC179005B2891 /* Readme.MD */; };
+		2111645B247F9E2400492964 /* DroppablePin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2111645A247F9E2400492964 /* DroppablePin.swift */; };
 		CC705C53C1CE60443A4D6374 /* Pods_FlickMapApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C486B9EA9131720C0B2E359B /* Pods_FlickMapApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +28,7 @@
 		210DCD0B247B8F6A005B2891 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		210DCD0D247B8F6A005B2891 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		210DCD17247CC179005B2891 /* Readme.MD */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Readme.MD; sourceTree = "<group>"; };
+		2111645A247F9E2400492964 /* DroppablePin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DroppablePin.swift; sourceTree = "<group>"; };
 		C486B9EA9131720C0B2E359B /* Pods_FlickMapApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FlickMapApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9FC9014312DA0554B2B043E /* Pods-FlickMapApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlickMapApp.debug.xcconfig"; path = "Target Support Files/Pods-FlickMapApp/Pods-FlickMapApp.debug.xcconfig"; sourceTree = "<group>"; };
 		EBF9257B7E50F809843AF582 /* Pods-FlickMapApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlickMapApp.release.xcconfig"; path = "Target Support Files/Pods-FlickMapApp/Pods-FlickMapApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -91,6 +93,7 @@
 			isa = PBXGroup;
 			children = (
 				210DCD05247B8F67005B2891 /* Main.storyboard */,
+				2111645A247F9E2400492964 /* DroppablePin.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -243,6 +246,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				210DCD04247B8F67005B2891 /* MapViewController.swift in Sources */,
+				2111645B247F9E2400492964 /* DroppablePin.swift in Sources */,
 				210DCD00247B8F67005B2891 /* AppDelegate.swift in Sources */,
 				210DCD02247B8F67005B2891 /* SceneDelegate.swift in Sources */,
 			);

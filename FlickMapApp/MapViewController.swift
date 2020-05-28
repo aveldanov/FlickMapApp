@@ -64,8 +64,16 @@ extension MapViewController: MKMapViewDelegate{
 //    print("Pin was dropped")
     
     let touchPoint = sender.location(in: mapViewOutlet)
+    // convert to map coordinate (lat/lon)
+//    print("point:", touchPoint)
+    let touchCoordinate = mapViewOutlet.convert(touchPoint, toCoordinateFrom: mapViewOutlet)
     
-    print(touchPoint)
+//    print("coord:", touchCoordinate)
+    
+    let annotation = DroppablePin(coordinate: touchCoordinate, identifier: "droppablePin")
+    mapViewOutlet.addAnnotation(annotation)
+    let coordinateRegion = MKCoordinateRegion(center: touchCoordinate, latitudinalMeters: regionRadious*2, longitudinalMeters: regionRadious*2)
+    mapViewOutlet.setRegion(coordinateRegion, animated: true)
   }
   
   
