@@ -23,10 +23,11 @@ class MapViewController: UIViewController, UIGestureRecognizerDelegate {
     mapViewOutlet.delegate = self
     locationManager.delegate = self
     configureLocationServices()
+    addDoubleTap()
   }
   
   func addDoubleTap(){
-    let doubleTap = UITapGestureRecognizer(target: self, action: #selector(dropPin))
+    let doubleTap = UITapGestureRecognizer(target: self, action: #selector(dropPin(sender:)))
     
     doubleTap.numberOfTapsRequired = 2
     doubleTap.delegate = self
@@ -59,10 +60,12 @@ extension MapViewController: MKMapViewDelegate{
     mapViewOutlet.setRegion(coordinateRegion, animated: true)
   }
   
-  @objc func dropPin(){
+  @objc func dropPin(sender: UITapGestureRecognizer){
+//    print("Pin was dropped")
     
+    let touchPoint = sender.location(in: mapViewOutlet)
     
-    
+    print(touchPoint)
   }
   
   
