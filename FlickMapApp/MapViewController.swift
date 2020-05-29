@@ -15,6 +15,10 @@ class MapViewController: UIViewController, UIGestureRecognizerDelegate {
   var locationManager = CLLocationManager()
   let authorizationStatus = CLLocationManager.authorizationStatus()
   let regionRadious: Double = 1000 // in meters
+  var spinner: UIActivityIndicatorView?
+  var progresLabel: UILabel?
+  var screenSize = UIScreen.main.bounds
+  
   
   @IBOutlet weak var mapViewOutlet: MKMapView!
   
@@ -29,6 +33,9 @@ class MapViewController: UIViewController, UIGestureRecognizerDelegate {
     configureLocationServices()
     addDoubleTap()
   }
+  
+  
+  //MARK: - Methods
   
   func addDoubleTap(){
     let doubleTap = UITapGestureRecognizer(target: self, action: #selector(dropPin(sender:)))
@@ -61,6 +68,13 @@ class MapViewController: UIViewController, UIGestureRecognizerDelegate {
     }
   }
   
+  func addSpinner(){
+    
+    spinner = UIActivityIndicatorView()
+    spinner?.center = CGPoint(x: (screenSize.width/2) - ((spinner?.frame.width)!/2), y: (screenSize.height/2))
+    spinner?.style = .UIActivityIndicatorView.Style.large
+    
+  }
   
   
   @IBAction func centerMapButtonPressed(_ sender: UIButton) {
