@@ -18,6 +18,10 @@ class MapViewController: UIViewController, UIGestureRecognizerDelegate {
   
   @IBOutlet weak var mapViewOutlet: MKMapView!
   
+  @IBOutlet weak var pullUpViewHeightConstraint: NSLayoutConstraint!
+  
+  @IBOutlet weak var pullUpView: UIView!
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     mapViewOutlet.delegate = self
@@ -36,19 +40,41 @@ class MapViewController: UIViewController, UIGestureRecognizerDelegate {
   }
   
   
+  func animateViewUp(){
+    pullUpViewHeightConstraint.constant = 300
+    UIView.animate(withDuration: 0.3) {
+      self.view.layoutIfNeeded()
+    }
+  }
   
-
+  func addSwipe(){
+    
+    let swipe = UISwipeGestureRecognizer(target: self, action: #selector(animateViewDown))
+    swipe.direction = .down
+    pullUpView.addGestureRecognizer(swipe)
+  }
+  
+  @objc func animateViewDown(){
+    pullUpViewHeightConstraint.constant = 0
+    UIView.animate(withDuration: 0.3) {
+            self.view.layoutIfNeeded()
+    }
+  }
+  
+  
+  
   @IBAction func centerMapButtonPressed(_ sender: UIButton) {
     
     if authorizationStatus == .authorizedAlways || authorizationStatus == .authorizedWhenInUse{
       centerMapOnUserLocation()
-
+      
       
     }
   }
   
 }
 
+//MARK: - MKMapViewDelegate
 
 extension MapViewController: MKMapViewDelegate{
   
@@ -74,13 +100,15 @@ extension MapViewController: MKMapViewDelegate{
   }
   
   @objc func dropPin(sender: UITapGestureRecognizer){
-removePin()
+    removePin()
+    animateViewUp()
+    addSwipe()
     let touchPoint = sender.location(in: mapViewOutlet)
     // convert to map coordinate (lat/lon)
-//    print("point:", touchPoint)
+    //    print("point:", touchPoint)
     let touchCoordinate = mapViewOutlet.convert(touchPoint, toCoordinateFrom: mapViewOutlet)
     
-//    print("coord:", touchCoordinate)
+    //    print("coord:", touchCoordinate)
     
     let annotation = DroppablePin(coordinate: touchCoordinate, identifier: "droppablePin")
     mapViewOutlet.addAnnotation(annotation)
@@ -97,6 +125,10 @@ removePin()
   }
   
 }
+
+
+
+//MARK: - CLLocationManagerDelegate
 
 
 extension MapViewController: CLLocationManagerDelegate{

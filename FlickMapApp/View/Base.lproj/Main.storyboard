@@ -16,7 +16,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" zoomEnabled="NO" rotateEnabled="NO" pitchEnabled="NO" showsUserLocation="YES" showsCompass="NO" translatesAutoresizingMaskIntoConstraints="NO" id="apW-QI-1Jv">
-                                <rect key="frame" x="0.0" y="44" width="375" height="768"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="767"/>
                             </mapView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wpx-xs-30I">
                                 <rect key="frame" x="0.0" y="44" width="375" height="70"/>
@@ -51,16 +51,18 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qcn-iX-tuF" userLabel="HiddenView">
-                                <rect key="frame" x="0.0" y="812" width="375" height="0.0"/>
+                                <rect key="frame" x="0.0" y="811" width="375" height="1"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="HI1-nU-6tp"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="qcn-iX-tuF" secondAttribute="bottom" id="1HA-h6-2MY"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="fuI-LK-iWf" secondAttribute="bottom" id="6gU-ro-6cg"/>
                             <constraint firstItem="wpx-xs-30I" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Erz-K4-rjh"/>
-                            <constraint firstAttribute="bottom" secondItem="apW-QI-1Jv" secondAttribute="bottom" id="PM4-oE-FCB"/>
+                            <constraint firstItem="qcn-iX-tuF" firstAttribute="top" secondItem="fuI-LK-iWf" secondAttribute="bottom" constant="33" id="S3t-f5-aRB"/>
                             <constraint firstItem="qcn-iX-tuF" firstAttribute="top" secondItem="apW-QI-1Jv" secondAttribute="bottom" id="S5l-Py-XFl"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="wpx-xs-30I" secondAttribute="trailing" id="YQ4-It-YEX"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="apW-QI-1Jv" secondAttribute="trailing" id="caI-eP-nlz"/>
@@ -75,6 +77,8 @@
                     </view>
                     <connections>
                         <outlet property="mapViewOutlet" destination="apW-QI-1Jv" id="vkU-1b-ENT"/>
+                        <outlet property="pullUpView" destination="qcn-iX-tuF" id="m81-SM-zHx"/>
+                        <outlet property="pullUpViewHeightConstraint" destination="HI1-nU-6tp" id="6Ce-ch-sHR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
