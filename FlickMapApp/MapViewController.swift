@@ -70,9 +70,11 @@ class MapViewController: UIViewController, UIGestureRecognizerDelegate {
   
   func addSpinner(){
     
-    spinner = UIActivityIndicatorView()
-    spinner?.center = CGPoint(x: (screenSize.width/2) - ((spinner?.frame.width)!/2), y: (screenSize.height/2))
-    spinner?.style = .UIActivityIndicatorView.Style.large
+    spinner = UIActivityIndicatorView(style: .large)
+    spinner?.center = CGPoint(x: (screenSize.width/2), y: pullUpViewHeightConstraint.constant/2)
+    spinner?.color = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
+    spinner?.startAnimating()
+    pullUpView.addSubview(spinner!)
     
   }
   
@@ -117,6 +119,8 @@ extension MapViewController: MKMapViewDelegate{
     removePin()
     animateViewUp()
     addSwipe()
+    addSpinner()
+    
     let touchPoint = sender.location(in: mapViewOutlet)
     // convert to map coordinate (lat/lon)
     //    print("point:", touchPoint)
