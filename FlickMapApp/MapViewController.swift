@@ -78,6 +78,13 @@ class MapViewController: UIViewController, UIGestureRecognizerDelegate {
     
   }
   
+  func removeSpinner(){
+    if spinner != nil{
+      spinner?.removeFromSuperview()
+    }
+    
+  }
+  
   
   @IBAction func centerMapButtonPressed(_ sender: UIButton) {
     
@@ -117,6 +124,7 @@ extension MapViewController: MKMapViewDelegate{
   
   @objc func dropPin(sender: UITapGestureRecognizer){
     removePin()
+    removeSpinner()
     animateViewUp()
     addSwipe()
     addSpinner()
