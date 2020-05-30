@@ -39,6 +39,9 @@ class MapViewController: UIViewController, UIGestureRecognizerDelegate {
     collectionView?.register(PhotoCollectionViewCell.self, forCellWithReuseIdentifier: "photoCell")
     collectionView?.delegate = self
     collectionView?.dataSource = self
+    collectionView?.backgroundColor = .green
+    pullUpView?.addSubview(collectionView!)
+    
   }
   
   
@@ -81,7 +84,7 @@ class MapViewController: UIViewController, UIGestureRecognizerDelegate {
     spinner?.center = CGPoint(x: (screenSize.width/2), y: pullUpViewHeightConstraint.constant/2)
     spinner?.color = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
     spinner?.startAnimating()
-    pullUpView.addSubview(spinner!)
+    collectionView?.addSubview(spinner!)
     
   }
   
@@ -101,7 +104,7 @@ class MapViewController: UIViewController, UIGestureRecognizerDelegate {
     progresLabel?.textColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
     progresLabel?.textAlignment = .center
     //    progresLabel?.text = "Hello World"
-    pullUpView.addSubview(progresLabel!)
+    collectionView?.addSubview(progresLabel!)
   }
   
   func removeProgressLabel(){
@@ -221,7 +224,9 @@ extension MapViewController: UICollectionViewDelegate, UICollectionViewDataSourc
   
   
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    return UICollectionViewCell()
+    
+    let cell = (collectionView.dequeueReusableCell(withReuseIdentifier: "photoCell", for: indexPath) as? PhotoCollectionViewCell)!
+    return cell
   }
   
   
