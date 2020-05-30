@@ -19,11 +19,13 @@ class MapViewController: UIViewController, UIGestureRecognizerDelegate {
   var progresLabel: UILabel?
   var screenSize = UIScreen.main.bounds
   
+  var flowLayout = UICollectionViewFlowLayout()
+  var collectionView: UICollectionView?
+  
+  
   
   @IBOutlet weak var mapViewOutlet: MKMapView!
-  
   @IBOutlet weak var pullUpViewHeightConstraint: NSLayoutConstraint!
-  
   @IBOutlet weak var pullUpView: UIView!
   
   override func viewDidLoad() {
@@ -32,6 +34,11 @@ class MapViewController: UIViewController, UIGestureRecognizerDelegate {
     locationManager.delegate = self
     configureLocationServices()
     addDoubleTap()
+    
+    collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: flowLayout)
+    collectionView?.register(PhotoCollectionViewCell.self, forCellWithReuseIdentifier: "photoCell")
+    collectionView?.delegate = self
+    collectionView?.dataSource = self
   }
   
   
@@ -64,7 +71,7 @@ class MapViewController: UIViewController, UIGestureRecognizerDelegate {
   @objc func animateViewDown(){
     pullUpViewHeightConstraint.constant = 0
     UIView.animate(withDuration: 0.3) {
-            self.view.layoutIfNeeded()
+      self.view.layoutIfNeeded()
     }
   }
   
@@ -93,7 +100,7 @@ class MapViewController: UIViewController, UIGestureRecognizerDelegate {
     progresLabel?.font = UIFont(name: "Avenir Next", size: 18)
     progresLabel?.textColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
     progresLabel?.textAlignment = .center
-//    progresLabel?.text = "Hello World"
+    //    progresLabel?.text = "Hello World"
     pullUpView.addSubview(progresLabel!)
   }
   
@@ -146,7 +153,7 @@ extension MapViewController: MKMapViewDelegate{
     removePin()
     removeSpinner()
     removeProgressLabel()
-
+    
     animateViewUp()
     addSwipe()
     addSpinner()
@@ -199,3 +206,27 @@ extension MapViewController: CLLocationManagerDelegate{
   
 }
 
+
+extension MapViewController: UICollectionViewDelegate, UICollectionViewDataSource{
+  func numberOfSections(in collectionView: UICollectionView) -> Int {
+    return 1
+  }
+  
+  
+  func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    return 4
+  }
+  
+
+  
+  
+  func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    return UICollectionViewCell()
+  }
+  
+  
+  
+  
+  
+  
+}
