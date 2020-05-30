@@ -89,11 +89,11 @@ class MapViewController: UIViewController, UIGestureRecognizerDelegate {
   func addProgressLabel(){
     
     progresLabel = UILabel()
-    progresLabel?.frame = CGRect(x: (screenSize.width/2) - 100, y: 175, width: 200, height: 40)
+    progresLabel?.frame = CGRect(x: (screenSize.width/2) - 120, y: 175, width: 240, height: 40)
     progresLabel?.font = UIFont(name: "Avenir Next", size: 18)
     progresLabel?.textColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
     progresLabel?.textAlignment = .center
-    progresLabel?.text = "Hello World"
+//    progresLabel?.text = "Hello World"
     pullUpView.addSubview(progresLabel!)
   }
   
