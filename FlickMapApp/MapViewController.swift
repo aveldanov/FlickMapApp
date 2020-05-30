@@ -162,6 +162,7 @@ extension MapViewController: MKMapViewDelegate{
     addSpinner()
     addProgressLabel()
     
+    
     let touchPoint = sender.location(in: mapViewOutlet)
     // convert to map coordinate (lat/lon)
     //    print("point:", touchPoint)
@@ -170,6 +171,8 @@ extension MapViewController: MKMapViewDelegate{
     //    print("coord:", touchCoordinate)
     
     let annotation = DroppablePin(coordinate: touchCoordinate, identifier: "droppablePin")
+    print(flickrUrl(forApiKey: apiKey, with: annotation, andNumberOfPhotos: 40))
+
     mapViewOutlet.addAnnotation(annotation)
     let coordinateRegion = MKCoordinateRegion(center: touchCoordinate, latitudinalMeters: regionRadious*2, longitudinalMeters: regionRadious*2)
     mapViewOutlet.setRegion(coordinateRegion, animated: true)
