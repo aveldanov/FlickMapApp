@@ -86,6 +86,26 @@ class MapViewController: UIViewController, UIGestureRecognizerDelegate {
   }
   
   
+  func addProgressLabel(){
+    
+    progresLabel = UILabel()
+    progresLabel?.frame = CGRect(x: (screenSize.width/2) - 100, y: 175, width: 200, height: 40)
+    progresLabel?.font = UIFont(name: "Avenir Next", size: 18)
+    progresLabel?.textColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
+    progresLabel?.textAlignment = .center
+    progresLabel?.text = "Hello World"
+    pullUpView.addSubview(progresLabel!)
+  }
+  
+  func removeProgressLabel(){
+    if progresLabel != nil{
+      progresLabel?.removeFromSuperview()
+    }
+    
+  }
+  
+  
+  
   @IBAction func centerMapButtonPressed(_ sender: UIButton) {
     
     if authorizationStatus == .authorizedAlways || authorizationStatus == .authorizedWhenInUse{
@@ -125,9 +145,12 @@ extension MapViewController: MKMapViewDelegate{
   @objc func dropPin(sender: UITapGestureRecognizer){
     removePin()
     removeSpinner()
+    removeProgressLabel()
+
     animateViewUp()
     addSwipe()
     addSpinner()
+    addProgressLabel()
     
     let touchPoint = sender.location(in: mapViewOutlet)
     // convert to map coordinate (lat/lon)
