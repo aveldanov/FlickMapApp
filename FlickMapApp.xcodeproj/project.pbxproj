@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		210153632483025B00E48A8F /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 210153622483025B00E48A8F /* .gitignore */; };
 		210153652483027E00E48A8F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210153642483027E00E48A8F /* Constants.swift */; };
+		210153672483032000E48A8F /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210153662483032000E48A8F /* Keys.swift */; };
 		210DCD00247B8F67005B2891 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210DCCFF247B8F67005B2891 /* AppDelegate.swift */; };
 		210DCD02247B8F67005B2891 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210DCD01247B8F67005B2891 /* SceneDelegate.swift */; };
 		210DCD04247B8F67005B2891 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210DCD03247B8F67005B2891 /* MapViewController.swift */; };
@@ -24,6 +25,7 @@
 /* Begin PBXFileReference section */
 		210153622483025B00E48A8F /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		210153642483027E00E48A8F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		210153662483032000E48A8F /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
 		210DCCFC247B8F67005B2891 /* FlickMapApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlickMapApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		210DCCFF247B8F67005B2891 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		210DCD01247B8F67005B2891 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 			isa = PBXGroup;
 			children = (
 				210153642483027E00E48A8F /* Constants.swift */,
+				210153662483032000E48A8F /* Keys.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -259,6 +262,7 @@
 				2111645D248236BE00492964 /* PhotoCollectionViewCell.swift in Sources */,
 				2111645B247F9E2400492964 /* DroppablePin.swift in Sources */,
 				210DCD00247B8F67005B2891 /* AppDelegate.swift in Sources */,
+				210153672483032000E48A8F /* Keys.swift in Sources */,
 				210DCD02247B8F67005B2891 /* SceneDelegate.swift in Sources */,
 				210153652483027E00E48A8F /* Constants.swift in Sources */,
 			);
