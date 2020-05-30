@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		210153632483025B00E48A8F /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 210153622483025B00E48A8F /* .gitignore */; };
+		210153652483027E00E48A8F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210153642483027E00E48A8F /* Constants.swift */; };
 		210DCD00247B8F67005B2891 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210DCCFF247B8F67005B2891 /* AppDelegate.swift */; };
 		210DCD02247B8F67005B2891 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210DCD01247B8F67005B2891 /* SceneDelegate.swift */; };
 		210DCD04247B8F67005B2891 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210DCD03247B8F67005B2891 /* MapViewController.swift */; };
@@ -20,6 +22,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		210153622483025B00E48A8F /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		210153642483027E00E48A8F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		210DCCFC247B8F67005B2891 /* FlickMapApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlickMapApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		210DCCFF247B8F67005B2891 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		210DCD01247B8F67005B2891 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -51,6 +55,7 @@
 		210DCCF3247B8F67005B2891 = {
 			isa = PBXGroup;
 			children = (
+				210153622483025B00E48A8F /* .gitignore */,
 				210DCD17247CC179005B2891 /* Readme.MD */,
 				210DCCFE247B8F67005B2891 /* FlickMapApp */,
 				210DCCFD247B8F67005B2891 /* Products */,
@@ -111,6 +116,7 @@
 		210DCD16247CBF8E005B2891 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				210153642483027E00E48A8F /* Constants.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -192,6 +198,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				210153632483025B00E48A8F /* .gitignore in Resources */,
 				210DCD0C247B8F6A005B2891 /* LaunchScreen.storyboard in Resources */,
 				210DCD09247B8F6A005B2891 /* Assets.xcassets in Resources */,
 				210DCD18247CC179005B2891 /* Readme.MD in Resources */,
@@ -253,6 +260,7 @@
 				2111645B247F9E2400492964 /* DroppablePin.swift in Sources */,
 				210DCD00247B8F67005B2891 /* AppDelegate.swift in Sources */,
 				210DCD02247B8F67005B2891 /* SceneDelegate.swift in Sources */,
+				210153652483027E00E48A8F /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
