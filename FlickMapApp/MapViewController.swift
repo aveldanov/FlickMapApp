@@ -20,11 +20,12 @@ class MapViewController: UIViewController, UIGestureRecognizerDelegate {
   var spinner: UIActivityIndicatorView?
   var progresLabel: UILabel?
   var screenSize = UIScreen.main.bounds
-  
   var flowLayout = UICollectionViewFlowLayout()
   var collectionView: UICollectionView?
-  
   var imageUrlArray = [String]()
+  
+  var imageArray = [UIImage]()
+  
   
   
   @IBOutlet weak var mapViewOutlet: MKMapView!
@@ -213,7 +214,7 @@ extension MapViewController: MKMapViewDelegate{
   }
   
   
-  func retrieveImages(){
+  func retrieveImages(handler: @escaping (_ status:Bool)->()){
     
     
   }
