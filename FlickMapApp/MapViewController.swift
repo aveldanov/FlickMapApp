@@ -9,6 +9,8 @@
 import UIKit
 import MapKit
 import CoreLocation
+import Alamofire
+import AlamofireImage
 
 class MapViewController: UIViewController, UIGestureRecognizerDelegate {
   
@@ -22,6 +24,7 @@ class MapViewController: UIViewController, UIGestureRecognizerDelegate {
   var flowLayout = UICollectionViewFlowLayout()
   var collectionView: UICollectionView?
   
+  var imageUrlArray = [String]()
   
   
   @IBOutlet weak var mapViewOutlet: MKMapView!
@@ -171,17 +174,40 @@ extension MapViewController: MKMapViewDelegate{
     //    print("coord:", touchCoordinate)
     
     let annotation = DroppablePin(coordinate: touchCoordinate, identifier: "droppablePin")
-    print(flickrUrl(forApiKey: apiKey, with: annotation, andNumberOfPhotos: 40))
-
+    //    print(flickrUrl(forApiKey: apiKey, withAnnotation: annotation, andNumberOfPhotos: 40))
+    
     mapViewOutlet.addAnnotation(annotation)
     let coordinateRegion = MKCoordinateRegion(center: touchCoordinate, latitudinalMeters: regionRadious*2, longitudinalMeters: regionRadious*2)
     mapViewOutlet.setRegion(coordinateRegion, animated: true)
+    
+    retrieveUrls(forAnnotation: annotation) { (true) in
+      print(self.imageUrlArray)
+    }
   }
   
   func removePin(){
     for annotation in mapViewOutlet.annotations{
       mapViewOutlet.removeAnnotation(annotation)
       
+    }
+    
+  }
+  
+  
+  func retrieveUrls(forAnnotation annotation:DroppablePin, handler: @escaping (_ status:Bool)->() ){
+    imageUrlArray = []
+    AF.request(flickrUrl(forApiKey: apiKey, withAnnotation: annotation, andNumberOfPhotos: 40)).responseJSON { (response) in
+      
+      guard let json = response.value as? Dictionary<String,AnyObject> else {return}
+      let photosDict = json["photos"] as! Dictionary<String,AnyObject>
+      
+      let photosDictArray = photosDict["photo"] as! [Dictionary<String,AnyObject>]
+      for photo in photosDictArray{
+        //        print(photo)
+        let postUrl = "https://farm\(photo["farm"]!).staticflickr.com/\(photo["server"]!)/\(photo["id"]!)_\(photo["secret"]!)_z_d.jpg"
+        self.imageUrlArray.append(postUrl)
+      }
+      handler(true)
     }
     
   }
@@ -223,7 +249,7 @@ extension MapViewController: UICollectionViewDelegate, UICollectionViewDataSourc
     return 4
   }
   
-
+  
   
   
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
