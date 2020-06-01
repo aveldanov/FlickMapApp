@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PopUpViewController: UIViewController {
+class PopUpViewController: UIViewController, UIGestureRecognizerDelegate {
   var passedImage: UIImage?
   
   
@@ -19,7 +19,7 @@ class PopUpViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     popUpImageView.image = passedImage
-    
+    addDoubleTap()
   }
   
   
@@ -31,8 +31,15 @@ class PopUpViewController: UIViewController {
   
   func addDoubleTap(){
     
+    let doubleTap = UITapGestureRecognizer(target: self, action: #selector(screenWasDoubleTapped))
+    doubleTap.numberOfTapsRequired = 2
     
-    
+    doubleTap.delegate = self
+    view.addGestureRecognizer(doubleTap)
+  }
+  
+  @objc func screenWasDoubleTapped(){
+    dismiss(animated: true, completion: nil)
   }
   
   
