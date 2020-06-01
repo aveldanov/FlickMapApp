@@ -35,6 +35,7 @@ class MapViewController: UIViewController, UIGestureRecognizerDelegate {
     super.viewDidLoad()
     mapViewOutlet.delegate = self
     locationManager.delegate = self
+    mapViewOutlet.showsUserLocation = true
     configureLocationServices()
     addDoubleTap()
     
@@ -42,7 +43,7 @@ class MapViewController: UIViewController, UIGestureRecognizerDelegate {
     collectionView?.register(PhotoCollectionViewCell.self, forCellWithReuseIdentifier: "photoCell")
     collectionView?.delegate = self
     collectionView?.dataSource = self
-    collectionView?.backgroundColor = .green
+    collectionView?.backgroundColor = #colorLiteral(red: 0.9746869206, green: 0.9608208537, blue: 0.9301876426, alpha: 1)
     pullUpView?.addSubview(collectionView!)
     
   }
@@ -79,6 +80,8 @@ class MapViewController: UIViewController, UIGestureRecognizerDelegate {
     UIView.animate(withDuration: 0.3) {
       self.view.layoutIfNeeded()
     }
+    
+    cancelAllSessions()
   }
   
   func addSpinner(){
@@ -123,7 +126,7 @@ class MapViewController: UIViewController, UIGestureRecognizerDelegate {
     
     if authorizationStatus == .authorizedAlways || authorizationStatus == .authorizedWhenInUse{
       centerMapOnUserLocation()
-      
+      mapViewOutlet.reloadInputViews()
       
     }
   }
@@ -159,6 +162,10 @@ extension MapViewController: MKMapViewDelegate{
     removePin()
     removeSpinner()
     removeProgressLabel()
+    cancelAllSessions()
+    imageUrlArray = []
+    imageArray = []
+    collectionView?.reloadData()
     
     animateViewUp()
     addSwipe()
@@ -191,6 +198,9 @@ extension MapViewController: MKMapViewDelegate{
           self.removeProgressLabel()
           
           // reload collection view
+          self.collectionView?.reloadData()
+          
+          
         }
       }
       
@@ -207,7 +217,6 @@ extension MapViewController: MKMapViewDelegate{
   
   
   func retrieveUrls(forAnnotation annotation:DroppablePin, handler: @escaping (_ status:Bool)->() ){
-    imageUrlArray = []
     AF.request(flickrUrl(forApiKey: apiKey, withAnnotation: annotation, andNumberOfPhotos: 40)).responseJSON { (response) in
       
       guard let json = response.value as? Dictionary<String,AnyObject> else {return}
@@ -226,7 +235,6 @@ extension MapViewController: MKMapViewDelegate{
   
   
   func retrieveImages(handler: @escaping (_ status:Bool)->()){
-    imageArray = []
     for url in imageUrlArray{
       AF.request(url).responseImage { (response) in
         guard let image = response.value else {return}
@@ -249,7 +257,7 @@ extension MapViewController: MKMapViewDelegate{
       downloadData.forEach{$0.cancel()}
     }
     
-    
+    print("Sessions are cancelled")
     
   }
   
@@ -289,7 +297,7 @@ extension MapViewController: UICollectionViewDelegate, UICollectionViewDataSourc
   
   
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    return 4
+    return imageArray.count
   }
   
   
@@ -297,7 +305,11 @@ extension MapViewController: UICollectionViewDelegate, UICollectionViewDataSourc
   
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     
-    let cell = (collectionView.dequeueReusableCell(withReuseIdentifier: "photoCell", for: indexPath) as? PhotoCollectionViewCell)!
+    guard let cell = (collectionView.dequeueReusableCell(withReuseIdentifier: "photoCell", for: indexPath) as? PhotoCollectionViewCell) else{return UICollectionViewCell()}
+    let imageFromIndex = imageArray[indexPath.row]
+    let imageView = UIImageView(image: imageFromIndex)
+    cell.addSubview(imageView)
+    
     return cell
   }
   
