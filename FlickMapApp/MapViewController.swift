@@ -329,7 +329,11 @@ extension MapViewController: UICollectionViewDelegate, UICollectionViewDataSourc
 
 extension MapViewController: UIViewControllerPreviewingDelegate{
   func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
-    <#code#>
+    guard let indexPath = collectionView?.indexPathForItem(at: location), let cell = collectionView?.cellForItem(at: indexPath) else {return nil}
+       guard let popVC = storyboard?.instantiateViewController(withIdentifier: "PopUpViewController") as? PopUpViewController else {return nil}
+    
+    
+    
   }
   
   func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
