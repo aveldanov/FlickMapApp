@@ -29,5 +29,11 @@ class PopUpViewController: UIViewController {
     
   }
   
+  func addDoubleTap(){
+    
+    
+    
+  }
+  
   
 }

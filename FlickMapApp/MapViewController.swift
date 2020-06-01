@@ -315,7 +315,12 @@ extension MapViewController: UICollectionViewDelegate, UICollectionViewDataSourc
   
   
   
-  
+  func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    guard let popVC = storyboard?.instantiateViewController(withIdentifier: "PopUpViewController") as? PopUpViewController else {return}
+    
+    popVC.initData(forImage: imageArray[indexPath.row])
+    present(popVC, animated: true, completion: nil)
+  }
   
   
 }
