@@ -19,6 +19,7 @@
 		210DCD18247CC179005B2891 /* Readme.MD in Resources */ = {isa = PBXBuildFile; fileRef = 210DCD17247CC179005B2891 /* Readme.MD */; };
 		2111645B247F9E2400492964 /* DroppablePin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2111645A247F9E2400492964 /* DroppablePin.swift */; };
 		2111645D248236BE00492964 /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2111645C248236BE00492964 /* PhotoCollectionViewCell.swift */; };
+		21549FFB248598D30058EEA9 /* PopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21549FFA248598D30058EEA9 /* PopUpViewController.swift */; };
 		CC705C53C1CE60443A4D6374 /* Pods_FlickMapApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C486B9EA9131720C0B2E359B /* Pods_FlickMapApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +38,7 @@
 		210DCD17247CC179005B2891 /* Readme.MD */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Readme.MD; sourceTree = "<group>"; };
 		2111645A247F9E2400492964 /* DroppablePin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DroppablePin.swift; sourceTree = "<group>"; };
 		2111645C248236BE00492964 /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
+		21549FFA248598D30058EEA9 /* PopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpViewController.swift; sourceTree = "<group>"; };
 		C486B9EA9131720C0B2E359B /* Pods_FlickMapApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FlickMapApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9FC9014312DA0554B2B043E /* Pods-FlickMapApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlickMapApp.debug.xcconfig"; path = "Target Support Files/Pods-FlickMapApp/Pods-FlickMapApp.debug.xcconfig"; sourceTree = "<group>"; };
 		EBF9257B7E50F809843AF582 /* Pods-FlickMapApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlickMapApp.release.xcconfig"; path = "Target Support Files/Pods-FlickMapApp/Pods-FlickMapApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -94,6 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				210DCD03247B8F67005B2891 /* MapViewController.swift */,
+				21549FFA248598D30058EEA9 /* PopUpViewController.swift */,
 				2111645C248236BE00492964 /* PhotoCollectionViewCell.swift */,
 			);
 			path = Controller;
@@ -265,6 +268,7 @@
 				210153672483032000E48A8F /* Keys.swift in Sources */,
 				210DCD02247B8F67005B2891 /* SceneDelegate.swift in Sources */,
 				210153652483027E00E48A8F /* Constants.swift in Sources */,
+				21549FFB248598D30058EEA9 /* PopUpViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

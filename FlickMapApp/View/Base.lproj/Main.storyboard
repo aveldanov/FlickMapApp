@@ -85,6 +85,55 @@
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="137.4384236453202"/>
         </scene>
+        <!--Pop Up View Controller-->
+        <scene sceneID="JBx-7q-YMn">
+            <objects>
+                <viewController id="iMB-N3-0OH" customClass="PopUpViewController" customModule="FlickMapApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="VxA-Ix-WcO">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nvS-7c-Y5B">
+                                <rect key="frame" x="0.0" y="44" width="375" height="768"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wlC-0c-75c">
+                                <rect key="frame" x="87.666666666666686" y="753" width="200" height="25"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Double-tap to dismiss" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OoH-Pb-6fh">
+                                        <rect key="frame" x="13.666666666666657" y="1" width="172.33333333333334" height="23.333333333333332"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="6ES-7I-FkN"/>
+                                    <constraint firstItem="OoH-Pb-6fh" firstAttribute="centerY" secondItem="wlC-0c-75c" secondAttribute="centerY" id="Gz7-dX-Xpe"/>
+                                    <constraint firstItem="OoH-Pb-6fh" firstAttribute="centerX" secondItem="wlC-0c-75c" secondAttribute="centerX" id="IOZ-KT-AxL"/>
+                                    <constraint firstAttribute="width" constant="200" id="Kid-JH-qjL"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="wlC-0c-75c" firstAttribute="centerX" secondItem="VxA-Ix-WcO" secondAttribute="centerX" id="9Yx-EU-zFm"/>
+                            <constraint firstItem="nvS-7c-Y5B" firstAttribute="top" secondItem="XzW-iC-W1q" secondAttribute="top" id="Crg-b1-QcI"/>
+                            <constraint firstItem="wlC-0c-75c" firstAttribute="bottom" secondItem="XzW-iC-W1q" secondAttribute="bottom" id="Jdz-hN-553"/>
+                            <constraint firstItem="nvS-7c-Y5B" firstAttribute="leading" secondItem="XzW-iC-W1q" secondAttribute="leading" id="d33-lG-8RD"/>
+                            <constraint firstItem="XzW-iC-W1q" firstAttribute="trailing" secondItem="nvS-7c-Y5B" secondAttribute="trailing" id="mqS-xg-NHb"/>
+                            <constraint firstAttribute="bottom" secondItem="nvS-7c-Y5B" secondAttribute="bottom" id="oM6-Bg-0d3"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="XzW-iC-W1q"/>
+                    </view>
+                    <connections>
+                        <outlet property="popUpImageView" destination="nvS-7c-Y5B" id="X3c-aw-Ugw"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UH0-K2-nA3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1111.2" y="137.4384236453202"/>
+        </scene>
     </scenes>
     <resources>
         <image name="locationButton" width="67" height="67"/>
