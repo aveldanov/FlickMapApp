@@ -17,15 +17,17 @@ class PopUpViewController: UIViewController {
   
   
   override func viewDidLoad() {
-        super.viewDidLoad()
-    }
+    super.viewDidLoad()
+    popUpImageView.image = passedImage
     
+  }
+  
   
   func initData(forImage image: UIImage){
     
     passedImage = image
-
+    
   }
-
-
+  
+  
 }
