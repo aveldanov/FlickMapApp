@@ -243,6 +243,18 @@ extension MapViewController: MKMapViewDelegate{
   }
   
   
+  func cancelAllSessions(){
+    AF.session.getTasksWithCompletionHandler { (sessionDataTask, uploadData, downloadData) in
+      sessionDataTask.forEach{$0.cancel()}
+      downloadData.forEach{$0.cancel()}
+    }
+    
+    
+    
+  }
+  
+  
+  
 }
 
 
