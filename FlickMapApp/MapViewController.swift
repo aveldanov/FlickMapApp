@@ -23,7 +23,6 @@ class MapViewController: UIViewController, UIGestureRecognizerDelegate {
   var flowLayout = UICollectionViewFlowLayout()
   var collectionView: UICollectionView?
   var imageUrlArray = [String]()
-  
   var imageArray = [UIImage]()
   
   
@@ -181,8 +180,20 @@ extension MapViewController: MKMapViewDelegate{
     let coordinateRegion = MKCoordinateRegion(center: touchCoordinate, latitudinalMeters: regionRadious*2, longitudinalMeters: regionRadious*2)
     mapViewOutlet.setRegion(coordinateRegion, animated: true)
     
-    retrieveUrls(forAnnotation: annotation) { (true) in
-      print(self.imageUrlArray)
+    retrieveUrls(forAnnotation: annotation) { (finished) in
+//      print(self.imageUrlArray)
+      if finished{
+        
+        self.retrieveImages { (finished) in
+          // hide spinner
+          self.removeSpinner()
+          // hide label
+          self.removeProgressLabel()
+          
+          // reload collection view
+        }
+      }
+      
     }
   }
   
@@ -215,7 +226,19 @@ extension MapViewController: MKMapViewDelegate{
   
   
   func retrieveImages(handler: @escaping (_ status:Bool)->()){
-    
+    imageArray = []
+    for url in imageUrlArray{
+      AF.request(url).responseImage { (response) in
+        guard let image = response.value else {return}
+        self.imageArray.append(image)
+        self.progresLabel?.text = "\(self.imageArray.count)/40 IMAGES LOADED"
+        if self.imageUrlArray.count == self.imageArray.count{
+//          means we are done
+          handler(true)
+        }
+      }
+      
+    }
     
   }
   
