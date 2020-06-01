@@ -44,7 +44,12 @@ class MapViewController: UIViewController, UIGestureRecognizerDelegate {
     collectionView?.delegate = self
     collectionView?.dataSource = self
     collectionView?.backgroundColor = #colorLiteral(red: 0.9746869206, green: 0.9608208537, blue: 0.9301876426, alpha: 1)
+    
+//    registerForPreviewing(with: self, sourceView: collectionView!)
+    let interaction = UIContextMenuInteraction(delegate: self)
+    collectionView?.addInteraction(interaction)
     pullUpView?.addSubview(collectionView!)
+    
     
   }
   
@@ -327,19 +332,36 @@ extension MapViewController: UICollectionViewDelegate, UICollectionViewDataSourc
 
 
 
-extension MapViewController: UIViewControllerPreviewingDelegate{
-  func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
-    guard let indexPath = collectionView?.indexPathForItem(at: location), let cell = collectionView?.cellForItem(at: indexPath) else {return nil}
-       guard let popVC = storyboard?.instantiateViewController(withIdentifier: "PopUpViewController") as? PopUpViewController else {return nil}
-    popVC.initData(forImage: imageArray[indexPath.row])
-    previewingContext.sourceRect = cell.contentView.frame
-    return popVC
+extension MapViewController: UIContextMenuInteractionDelegate{
+  func contextMenuInteraction(_ interaction: UIContextMenuInteraction, configurationForMenuAtLocation location: CGPoint) -> UIContextMenuConfiguration? {
+        guard let indexPath = collectionView?.indexPathForItem(at: location), let cell = collectionView?.cellForItem(at: indexPath) else {return nil}
+           guard let popVC = storyboard?.instantiateViewController(withIdentifier: "PopUpViewController") as? PopUpViewController else {return nil}
+        popVC.initData(forImage: imageArray[indexPath.row])
+    present(popVC, animated: true, completion: nil)
+    print("3D touch worked")
+    print(location)
+    return nil
     
   }
   
-  func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
-    <#code#>
-  }
+  
+  
+ 
+  
+  
+  
+//  func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
+//    guard let indexPath = collectionView?.indexPathForItem(at: location), let cell = collectionView?.cellForItem(at: indexPath) else {return nil}
+//       guard let popVC = storyboard?.instantiateViewController(withIdentifier: "PopUpViewController") as? PopUpViewController else {return nil}
+//    popVC.initData(forImage: imageArray[indexPath.row])
+//    previewingContext.sourceRect = cell.contentView.frame
+//    return popVC
+//
+//  }
+//
+//  func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
+//    show(viewControllerToCommit, sender: self)
+//  }
   
   
   
